@@ -22,7 +22,12 @@ app.use(helmet({
             mediaSrc: ["'self'"], objectSrc: ["'none'"],
             imgSrc: ["'self'", "data:", "https://snatev.com"],
             defaultSrc: ["'self'"], frameSrc: ["'none'"], connectSrc: ["'self'"],
-            scriptSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com"],
+            scriptSrc: [
+                "'self'",
+                "'unsafe-inline'",
+                "https://cdnjs.cloudflare.com",
+                "https://static.cloudflareinsights.com"
+            ],
             fontSrc: ["'self'", "https://cdnjs.cloudflare.com", "https://fonts.gstatic.com"],
             styleSrc: ["'self'", "'unsafe-inline'", "https://cdnjs.cloudflare.com", "https://fonts.googleapis.com"]
         }
@@ -84,3 +89,8 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(1337, () => { console.log('Server Started'); });
+
+process.on('SIGTERM', () => {
+    console.log('SIGTERM Received, Closing');
+    server.close(() => { process.exit(0); });
+});
