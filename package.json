@@ -1,0 +1,14 @@
+{
+  "name": "snatev",
+  "version": "1.0.0",
+  "description": "Static personal hub for displaying links to various related platforms and accounts",
+  "main": "app.js",
+  "author": "snatev",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.8.0",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.1.0"
+  }
+}
