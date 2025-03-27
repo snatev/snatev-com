@@ -7,7 +7,7 @@ const rateLimit = require('express-rate-limit');
 
 const app = express();
 app.use(compression());
-app.set('trust proxy', true);
+app.set('trust proxy', 1);
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 
@@ -33,7 +33,10 @@ const limiter = rateLimit({
     max: 100,
     legacyHeaders: false,
     standardHeaders: true,
-    windowMs: 15 * 60 * 1000
+    windowMs: 15 * 60 * 1000,
+    handler: (req, res, next, options) => {
+        res.status(options.statusCode).send('Too Many Requests');
+    }
 });
 
 app.use(limiter);
