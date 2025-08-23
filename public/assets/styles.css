@@ -2,7 +2,8 @@
 
 body {
     color: white;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     background-color: #14161e;
     font-family: 'Quicksand', sans-serif !important;
 }
@@ -45,7 +46,7 @@ footer { box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.25); }
     --panel-strong: rgba(0,0,0,0.22);
     --stroke: rgba(255,255,255,0.06);
 }
-.sections-container { max-width: 1200px; margin-left: auto; margin-right: auto; }
+.sections-container { max-width: 1200px; margin-left: auto; margin-right: auto; padding-bottom: calc(var(--footer-h) + 8px); }
 .two-col {
     display: grid;
     grid-template-columns: minmax(380px, 1.25fr) minmax(320px, 1fr);
