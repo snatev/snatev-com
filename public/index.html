@@ -13,8 +13,8 @@
     <meta name="application-name" content="snatev hub">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="robots" content="index, follow, max-image-preview:large">
-    <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: light)">
 
     <link rel="canonical" href="https://snatev.com/">
 
@@ -37,12 +37,50 @@
     <link rel="icon" type="image/png" href="https://snatev.com/assets/icons/favicon.png">
     <link rel="shortcut icon" type="image/png" href="https://snatev.com/assets/icons/favicon.png">
 
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/styles.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#fafafa',
+                            100: '#e5e5e5',
+                            200: '#d4d4d4',
+                            300: '#a3a3a3',
+                            400: '#737373',
+                            500: '#525252',
+                            600: '#404040',
+                            700: '#262626',
+                            800: '#171717',
+                            900: '#0a0a0a',
+                        },
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.4s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
 
     <script type="application/ld+json">{
         "@context": "https://schema.org",
@@ -75,213 +113,401 @@
     }
 </script>
 </head>
-<body>
-    <video autoplay playsinline muted loop class="position-fixed w-100 h-100">
+<body class="relative min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden is-loading">
+    <video autoplay playsinline muted loop aria-hidden="true" tabindex="-1" class="fixed inset-0 w-full h-full object-cover opacity-15 z-0">
         <source src="assets/bg.mp4" type="video/mp4">
     </video>
 
-    <nav class="navbar blur navbar-expand-lg navbar-dark bg-secondary bg-opacity-10" aria-label="Primary navigation">
-        <div class="container text-center text-light">
-            <a class="nav-link mx-auto" href="/" title="Home" aria-label="Home">
-                Welcome<i class="text-warning bi bi-person-raised-hand me-2 ms-2" aria-hidden="true"></i>Stranger
-            </a>
+    <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/30 border-b border-white/5" aria-label="Primary navigation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="text-white font-display font-semibold text-lg hover:text-white/80 transition-colors" title="Home" aria-label="Home">
+                    snatev
+                </a>
+
+                <div class="flex items-center gap-6">
+                    <a href="#about" title="About" class="flex items-center gap-1.5 text-sm text-white/70 hover:text-white transition-colors">
+                        <i class="bi bi-person-circle text-base"></i>
+                        <span>About</span>
+                    </a>
+                    <a href="#links" title="Links" class="flex items-center gap-1.5 text-sm text-white/70 hover:text-white transition-colors">
+                        <i class="bi bi-link-45deg text-base"></i>
+                        <span>Links</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <main class="container sections-container two-col py-4">
-        <div class="left-col">
-            <details class="section-card blur shadow bg-secondary bg-opacity-10 rounded-4 p-3 mb-3" open>
-                <summary class="text-center mb-2" aria-labelledby="projects-title">
-                    <span class="toggle-indicator me-1">▶</span>
-                    <h2 id="projects-title" class="section-title text-secondary text-uppercase small d-inline">
-                        <i class="bi bi-star-fill me-1" aria-hidden="true"></i>Featured Projects
-                    </h2>
-                </summary>
-                <div class="collapsible-body">
-                    <div class="items-grid primary-grid">
-                        <a href="https://kickoff.snatev.com/" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="Open Kickoff project">
-                            <span class="icon-circle"><i class="bi bi-rocket-takeoff" aria-hidden="true"></i></span>
-                            <span class="item-label">Kickoff</span>
+    <main class="relative z-10 py-24">
+        <div class="premium-container">
+            <div class="relative text-center mb-20">
+                <div class="hero-grid"></div>
+                <div class="relative z-10">
+                    <h1 class="text-8xl md:text-9xl font-display font-bold mb-3 hero-title">
+                        snatev
+                    </h1>
+
+                    <div class="inline-flex items-baseline gap-4 text-white/60 mb-2 hero-meta">
+                        <span class="text-base font-light">Máté M.</span>
+                        <span class="text-white/20">|</span>
+                        <button type="button" id="copyEmailBtn" class="relative group text-sm hover:text-white transition-all duration-300" aria-label="Copy email">
+                            <span id="hub-email">mail@snatev.com</span>
+                            <i class="bi bi-clipboard text-xs ml-1.5 opacity-0 group-hover:opacity-60 transition-opacity" aria-hidden="true"></i>
+                            <span id="copyToast" role="status" aria-live="polite" class="absolute -top-9 left-1/2 transform -translate-x-1/2 bg-white/10 backdrop-blur-xl text-white px-3 py-1.5 rounded-lg text-xs font-medium opacity-0 pointer-events-none transition-opacity duration-300 border border-white/20 whitespace-nowrap">
+                                Copied!
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="about" class="about-section">
+                <div class="about-card-main">
+                    <div class="about-title-row">
+                        <h2 class="about-main-title">
+                            <i class="bi bi-stars" aria-hidden="true"></i>
+                            Building Tools & Exploring Technologies
+                        </h2>
+                        <div class="about-meta">
+                            <div class="about-badge">
+                                <i class="bi bi-code-slash" aria-hidden="true"></i>
+                                <span>Developer</span>
+                            </div>
+                            <div class="about-location">
+                                <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                                <span>Hungary</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-description">
+                        <div class="desc-col desc-col-left">
+                            <p>
+                                Backend and fullstack developer focused on creating practical solutions across web development, security, and automation.
+                                Specializing in server-side architecture, API development, database design, and building robust applications from the ground up with modern frameworks and technologies.
+                            </p>
+                        </div>
+                        <div class="desc-col desc-col-right">
+                            <p>
+                                Passionate about hosting infrastructure, deployment strategies, and DevOps workflows.
+                                Actively exploring cybersecurity, containerization, and scalable web architectures while maintaining production applications and experimenting with emerging technologies in the modern development ecosystem.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="bi bi-server" aria-hidden="true"></i>
+                            <div class="highlight-content">
+                                <div class="highlight-label">Backend Development</div>
+                                <div class="highlight-text">APIs, Databases, Server Architecture</div>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="bi bi-shield-check" aria-hidden="true"></i>
+                            <div class="highlight-content">
+                                <div class="highlight-label">Security & Tools</div>
+                                <div class="highlight-text">Automation, Scripts, Infrastructure</div>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="bi bi-hdd-stack" aria-hidden="true"></i>
+                            <div class="highlight-content">
+                                <div class="highlight-label">Hosting & DevOps</div>
+                                <div class="highlight-text">Deployment, Containers, CI/CD</div>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="bi bi-braces" aria-hidden="true"></i>
+                            <div class="highlight-content">
+                                <div class="highlight-label">Web Technologies</div>
+                                <div class="highlight-text">Modern Frameworks, Full Stack</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="links" class="section-divider">
+                <h2 class="sr-only">Links</h2>
+                <div class="divider-line"></div>
+                <div class="divider-text">
+                    <i class="bi bi-link-45deg" aria-hidden="true"></i>
+                    <span>Quick Links</span>
+                </div>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="links-section">
+                <div id="projects" class="link-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="link-card-icon">
+                                <i class="bi bi-rocket-takeoff" aria-hidden="true"></i>
+                            </div>
+                            <h2 class="link-card-title-inline">Projects</h2>
+                        </div>
+                        <span class="card-count">3</span>
+                    </div>
+                    <div class="social-grid-compact">
+                        <a href="https://kickoff.snatev.com/" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-rocket-takeoff" aria-hidden="true"></i>
+                            <span>Kickoff</span>
                         </a>
-                        <a href="https://password.snatev.com/" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="Open Password Generator tool">
-                            <span class="icon-circle"><img src="assets/icons/password-generator.png" alt="Password Generator tool icon" title="Password Generator" loading="lazy" decoding="async"></span>
-                            <span class="item-label">Generator</span>
+                        <a href="https://password.snatev.com/" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-key-fill" aria-hidden="true"></i>
+                            <span>Password</span>
                         </a>
-                        <a href="https://snavoris.hu/" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="Visit Snavoris project">
-                            <span class="icon-circle"><img src="assets/icons/favicon.png" alt="Snavoris project icon" title="Snavoris" loading="lazy" decoding="async"></span>
-                            <span class="item-label">Snavoris</span>
+                        <a href="https://snavoris.hu/" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-globe2" aria-hidden="true"></i>
+                            <span>Snavoris</span>
                         </a>
                     </div>
                 </div>
-            </details>
 
-            <details class="section-card blur shadow bg-secondary bg-opacity-10 rounded-4 p-3 mb-3" open>
-                <summary class="text-center mb-2" aria-labelledby="primary-socials-title">
-                    <span class="toggle-indicator me-1">▶</span>
-                    <h2 id="primary-socials-title" class="section-title text-secondary text-uppercase small d-inline">
-                        <i class="bi bi-people-fill me-1" aria-hidden="true"></i>Primary Social Platforms
-                    </h2>
-                </summary>
-                <div class="collapsible-body">
-                    <div class="items-grid">
-                        <a href="https://github.com/snatev" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="GitHub profile">
-                            <span class="icon-circle"><i class="bi bi-github" aria-hidden="true"></i></span>
-                            <span class="item-label">GitHub</span>
+                <div id="developer" class="link-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="link-card-icon">
+                                <i class="bi bi-code-slash" aria-hidden="true"></i>
+                            </div>
+                            <h2 class="link-card-title-inline">Developer</h2>
+                        </div>
+                        <span class="card-count">4</span>
+                    </div>
+                    <div class="social-grid-compact">
+                        <a href="https://github.com/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-github" aria-hidden="true"></i>
+                            <span>GitHub</span>
                         </a>
-                        <a href="https://steamcommunity.com/id/snatev" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="Steam profile">
-                            <span class="icon-circle"><i class="bi bi-steam" aria-hidden="true"></i></span>
-                            <span class="item-label">Steam</span>
+                        <a href="https://hub.docker.com/u/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-boxes" aria-hidden="true"></i>
+                            <span>Docker</span>
                         </a>
-                        <a href="https://www.tiktok.com/@snatev" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="TikTok profile">
-                            <span class="icon-circle"><i class="bi bi-tiktok" aria-hidden="true"></i></span>
-                            <span class="item-label">TikTok</span>
+                        <a href="https://pypi.org/user/snatev/" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-filetype-py" aria-hidden="true"></i>
+                            <span>PyPI</span>
                         </a>
-                        <a href="https://www.youtube.com/@snatev" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="YouTube channel">
-                            <span class="icon-circle"><i class="bi bi-youtube" aria-hidden="true"></i></span>
-                            <span class="item-label">YouTube</span>
-                        </a>
-                        <a href="https://tryhackme.com/p/snatev" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="TryHackMe profile">
-                            <span class="icon-circle"><img src="assets/icons/tryhackme.png" alt="TryHackMe platform icon" title="TryHackMe" loading="lazy" decoding="async"></span>
-                            <span class="item-label">TryHackMe</span>
-                        </a>
-                        <a href="https://www.twitch.tv/snatev" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="Twitch channel">
-                            <span class="icon-circle"><i class="bi bi-twitch" aria-hidden="true"></i></span>
-                            <span class="item-label">Twitch</span>
+                        <a href="https://stackoverflow.com/users/31334055/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-stack-overflow" aria-hidden="true"></i>
+                            <span>Stack</span>
                         </a>
                     </div>
                 </div>
-            </details>
 
-            <details class="section-card blur shadow bg-secondary bg-opacity-10 rounded-4 p-3 mb-4" aria-labelledby="other-socials-title">
-                <summary class="text-center mb-2">
-                    <span class="toggle-indicator me-1">▶</span>
-                    <h2 id="other-socials-title" class="section-title text-secondary text-uppercase small d-inline">
-                        <i class="bi bi-people-fill me-1" aria-hidden="true"></i>Other Social & Developer Platforms
-                    </h2>
-                </summary>
-                <div class="collapsible-body">
-                    <div class="items-grid">
-                        <a href="https://discord.com/users/1381959422804492433" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="Discord user profile">
-                            <span class="icon-circle"><i class="bi bi-discord" aria-hidden="true"></i></span>
-                            <span class="item-label">Discord</span>
+                <div class="link-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="link-card-icon">
+                                <i class="bi bi-controller" aria-hidden="true"></i>
+                            </div>
+                            <h2 class="link-card-title-inline">Gaming</h2>
+                        </div>
+                        <span class="card-count">4</span>
+                    </div>
+                    <div class="social-grid-compact">
+                        <a href="https://steamcommunity.com/id/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-steam" aria-hidden="true"></i>
+                            <span>Steam</span>
                         </a>
-                        <a href="https://kick.com/snatev" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="Kick streaming profile">
-                            <span class="icon-circle"><img src="assets/icons/kick.png" alt="Kick platform icon" title="Kick" loading="lazy" decoding="async"></span>
-                            <span class="item-label">Kick</span>
+                        <a href="https://www.twitch.tv/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-twitch" aria-hidden="true"></i>
+                            <span>Twitch</span>
                         </a>
-                        <a href="https://x.com/thesnatev" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="X / Twitter profile">
-                            <span class="icon-circle"><i class="bi bi-twitter-x" aria-hidden="true"></i></span>
-                            <span class="item-label">X/Twitter</span>
+                        <a href="https://kick.com/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-broadcast" aria-hidden="true"></i>
+                            <span>Kick</span>
                         </a>
-                        <a href="https://www.instagram.com/thesnatev/" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="Instagram profile">
-                            <span class="icon-circle"><i class="bi bi-instagram" aria-hidden="true"></i></span>
-                            <span class="item-label">Instagram</span>
-                        </a>
-                        <a href="https://open.spotify.com/user/31fmavdcnf632d2xfoaint4lm3pq" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="Spotify profile">
-                            <span class="icon-circle"><i class="bi bi-spotify" aria-hidden="true"></i></span>
-                            <span class="item-label">Spotify</span>
-                        </a>
-                        <a href="https://www.reddit.com/user/snatev/" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="Reddit profile">
-                            <span class="icon-circle"><i class="bi bi-reddit" aria-hidden="true"></i></span>
-                            <span class="item-label">Reddit</span>
-                        </a>
-                        <a href="https://hub.docker.com/u/snatev" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="Docker Hub profile">
-                            <span class="icon-circle"><img src="assets/icons/docker.png" alt="Docker logo" title="Docker" loading="lazy" decoding="async"></span>
-                            <span class="item-label">Docker</span>
-                        </a>
-                        <a href="https://pypi.org/user/snatev/" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="PyPI profile">
-                            <span class="icon-circle"><i class="bi-filetype-py" aria-hidden="true"></i></span>
-                            <span class="item-label">PyPI</span>
-                        </a>
-                        <a href="https://www.gravatar.com/snatev" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="Gravatar profile">
-                            <span class="icon-circle"><i class="bi bi-person-circle" aria-hidden="true"></i></span>
-                            <span class="item-label">Gravatar</span>
-                        </a>
-                        <a href="https://www.pinterest.com/thesnatev/" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="Pinterest profile">
-                            <span class="icon-circle"><i class="bi bi-pinterest" aria-hidden="true"></i></span>
-                            <span class="item-label">Pinterest</span>
-                        </a>
-                        <a href="https://stackoverflow.com/users/31334055/snatev" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="Stack Overflow profile">
-                            <span class="icon-circle"><i class="bi bi-stack-overflow" aria-hidden="true"></i></span>
-                            <span class="item-label">Stack</span>
-                        </a>
-                        <a href="https://bsky.app/profile/snatev.com" target="_blank" rel="noopener noreferrer" class="item-button text-light" title="Bluesky profile">
-                            <span class="icon-circle"><img src="assets/icons/bluesky.png" alt="Bluesky logo" title="Bluesky" loading="lazy" decoding="async"></span>
-                            <span class="item-label">Bluesky</span>
+                        <a href="https://tryhackme.com/p/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-shield-lock" aria-hidden="true"></i>
+                            <span>TryHackMe</span>
                         </a>
                     </div>
                 </div>
-            </details>
-        </div>
 
-        <div class="right-col">
-            <section class="hero text-center my-4" aria-labelledby="site-hero-title">
-                <h1 id="site-hero-title" class="display-1">snatev</h1>
-                <p class="lead blur shadow bg-secondary bg-opacity-10 rounded-3 fs-5 p-2 px-4 mb-2 d-inline-block" aria-label="Email address">
-                    <span id="hub-email">mail@snatev.com</span>
-                    <button type="button" id="copyEmailBtn" class="copy-btn" aria-label="Copy email"><i class="bi bi-clipboard" aria-hidden="true"></i></button>
-                    <span id="copyToast" class="text-success fw-semibold ms-2 d-none">Copied</span>
-                </p>
-                <p class="fs-5">Máté M.</p>
-            </section>
+                <div id="social" class="link-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="link-card-icon">
+                                <i class="bi bi-people" aria-hidden="true"></i>
+                            </div>
+                            <h2 class="link-card-title-inline">Social</h2>
+                        </div>
+                        <span class="card-count">4</span>
+                    </div>
+                    <div class="social-grid-compact">
+                        <a href="https://x.com/thesnatev" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-twitter-x" aria-hidden="true"></i>
+                            <span>X</span>
+                        </a>
+                        <a href="https://www.instagram.com/thesnatev/" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-instagram" aria-hidden="true"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://www.tiktok.com/@snatev" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-tiktok" aria-hidden="true"></i>
+                            <span>TikTok</span>
+                        </a>
+                        <a href="https://bsky.app/profile/snatev.com" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-cloud" aria-hidden="true"></i>
+                            <span>Bluesky</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="link-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="link-card-icon">
+                                <i class="bi bi-play-circle" aria-hidden="true"></i>
+                            </div>
+                            <h2 class="link-card-title-inline">Media</h2>
+                        </div>
+                        <span class="card-count">4</span>
+                    </div>
+                    <div class="social-grid-compact">
+                        <a href="https://www.youtube.com/@snatev" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-youtube" aria-hidden="true"></i>
+                            <span>YouTube</span>
+                        </a>
+                        <a href="https://open.spotify.com/user/31fmavdcnf632d2xfoaint4lm3pq" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-spotify" aria-hidden="true"></i>
+                            <span>Spotify</span>
+                        </a>
+                        <a href="https://www.reddit.com/user/snatev/" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-reddit" aria-hidden="true"></i>
+                            <span>Reddit</span>
+                        </a>
+                        <a href="https://www.pinterest.com/thesnatev/" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-pinterest" aria-hidden="true"></i>
+                            <span>Pinterest</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="link-card">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="link-card-icon">
+                                <i class="bi bi-chat-dots" aria-hidden="true"></i>
+                            </div>
+                            <h2 class="link-card-title-inline">Connect</h2>
+                        </div>
+                        <span class="card-count">2</span>
+                    </div>
+                    <div class="social-grid-compact">
+                        <a href="https://discord.com/users/1381959422804492433" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-discord" aria-hidden="true"></i>
+                            <span>Discord</span>
+                        </a>
+                        <a href="https://www.gravatar.com/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-person-circle" aria-hidden="true"></i>
+                            <span>Gravatar</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </main>
 
-    <footer class="footer fixed-footer blur text-center bg-secondary bg-opacity-10 p-2">
-        <div class="container">
-            <span id="current-time" class="m-0 p-0"></span>
+    <footer class="fixed bottom-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/20 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-12">
+                <span id="current-time" class="text-sm text-white/70 font-mono"></span>
+                <a href="https://noctra.hu" target="_blank" rel="noopener noreferrer" class="text-xs text-white/50 hover:text-white/80 transition-colors flex items-center gap-1.5">
+                    <span>by</span>
+                    <span class="font-semibold">NOCTRA</span>
+                </a>
+            </div>
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <button id="scrollTop" class="scroll-btn scroll-btn-top" aria-label="Scroll to top" title="Scroll to top">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+    <button id="scrollBottom" class="scroll-btn scroll-btn-bottom" aria-label="Scroll to bottom" title="Scroll to bottom">
+        <i class="bi bi-chevron-down"></i>
+    </button>
+
     <script>
-        $(function(){
-            function updateTime() {
-                $('#current-time').text(new Date().toLocaleTimeString());
-            }
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const enableReveal = () => {
+            document.body.classList.add('is-loaded');
+            document.body.classList.remove('is-loading');
+        };
 
-            updateTime();
-            setInterval(updateTime, 1000);
+        if (prefersReducedMotion) enableReveal();
+        else setTimeout(enableReveal, 60);
 
-            const $copyBtn = $('#copyEmailBtn');
-            $copyBtn.on('click', function(){
-                const email = $('#hub-email').text().trim();
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('current-time').textContent = now.toLocaleTimeString();
+        }
 
-                navigator.clipboard.writeText(email).then(() => {
-                    const $toast = $('#copyToast');
+        updateTime();
+        setInterval(updateTime, 1000);
 
-                    $toast.stop(true,true).removeClass('d-none').css('opacity',1);
-                    setTimeout(() => {
-                        $toast.fadeOut(250, () => { $toast.addClass('d-none').css({display:'', opacity:''}); });
-                    }, 1100);
+        const copyBtn = document.getElementById('copyEmailBtn');
+        const copyToast = document.getElementById('copyToast');
 
-                    $copyBtn.html('<i class="bi bi-clipboard-check" aria-hidden="true"></i>');
-                    setTimeout(() => $copyBtn.html('<i class="bi bi-clipboard" aria-hidden="true"></i>'), 1400);
-                });
-            });
+        copyBtn.addEventListener('click', async () => {
+            const email = document.getElementById('hub-email').textContent.trim();
 
-            $('details.section-card').each(function(){
-                const $det = $(this);
-                const $summary = $det.children('summary');
-                const $body = $det.find('> .collapsible-body');
-
-                if(!$summary.length || !$body.length) return;
-                if($det.prop('open')) $det.addClass('is-open');
-
-                $summary.on('click', function(e){
-                    e.preventDefault();
-
-                    if($det.hasClass('is-open')){
-                        $det.removeClass('is-open');
-                        setTimeout(()=>{ if(!$det.hasClass('is-open')) $det.removeAttr('open'); }, 340);
-                    } else {
-                        $det.attr('open', true);
-                        requestAnimationFrame(()=> $det.addClass('is-open'));
-                    }
-                });
-            });
+            try {
+                await navigator.clipboard.writeText(email);
+                copyToast.style.opacity = '1';
+                copyToast.style.pointerEvents = 'auto';
+                setTimeout(() => {
+                    copyToast.style.opacity = '0';
+                    copyToast.style.pointerEvents = 'none';
+                }, 1500);
+            } catch (err) { console.error('Failed to copy:', err); }
         });
+
+        const scrollTopBtn = document.getElementById('scrollTop');
+        const scrollBottomBtn = document.getElementById('scrollBottom');
+        const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
+
+        function updateScrollButtons() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight;
+            const clientHeight = document.documentElement.clientHeight;
+            const scrollBottom = scrollHeight - scrollTop - clientHeight;
+
+            if (scrollTop < 100) {
+                scrollTopBtn.classList.remove('visible');
+                scrollBottomBtn.classList.add('visible');
+            } else if (scrollBottom < 100) {
+                scrollTopBtn.classList.add('visible');
+                scrollBottomBtn.classList.remove('visible');
+            } else {
+                scrollTopBtn.classList.add('visible');
+                scrollBottomBtn.classList.add('visible');
+            }
+        }
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: scrollBehavior });
+        });
+
+        scrollBottomBtn.addEventListener('click', () => {
+            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: scrollBehavior });
+        });
+
+        window.addEventListener('scroll', updateScrollButtons);
+        updateScrollButtons();
+
+        (function addTitlesToSocialLinks(){
+            const links = document.querySelectorAll('.social-item');
+            links.forEach(a => {
+                if (!a.getAttribute('title')) {
+                    const label = a.querySelector('span')?.textContent?.trim() || 'Link';
+                    a.setAttribute('title', `${label}`);
+                }
+            });
+        })();
     </script>
 </body>
 </html>
