@@ -42,45 +42,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/tw.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/styles.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: {
-                            50: '#fafafa',
-                            100: '#e5e5e5',
-                            200: '#d4d4d4',
-                            300: '#a3a3a3',
-                            400: '#737373',
-                            500: '#525252',
-                            600: '#404040',
-                            700: '#262626',
-                            800: '#171717',
-                            900: '#0a0a0a',
-                        },
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.4s ease-out',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                    },
-                },
-            },
-        }
-    </script>
+    <!-- Tailwind is built via tailwind.config.js to assets/tw.css -->
 
     <script type="application/ld+json">{
         "@context": "https://schema.org",
@@ -433,14 +399,17 @@
 
     <script>
         const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        let revealTimer;
         const enableReveal = () => {
             document.body.classList.add('is-loaded');
             document.body.classList.remove('is-loading');
+            if (revealTimer) clearTimeout(revealTimer);
         };
 
         const scheduleReveal = () => {
             if (prefersReducedMotion) return enableReveal();
             requestAnimationFrame(() => requestAnimationFrame(enableReveal));
+            revealTimer = setTimeout(enableReveal, 1500);
         };
 
         if (document.readyState === 'complete' || document.readyState === 'interactive') scheduleReveal();
