@@ -17,6 +17,8 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.bg-video { pointer-events: none; }
+
 :root {
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -32,8 +34,8 @@ nav,
 .links-section .link-card,
 footer,
 .scroll-btn {
-    transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out), filter 700ms var(--ease-out);
-    will-change: opacity, transform, filter;
+    transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out);
+    will-change: opacity, transform;
 }
 
 body.is-loading nav,
@@ -48,8 +50,7 @@ body.is-loading .links-section .link-card,
 body.is-loading footer,
 body.is-loading .scroll-btn {
     opacity: 0;
-    transform: translateY(10px) scale(0.98);
-    filter: blur(6px);
+    transform: translateY(12px);
 }
 
 nav { transition-delay: 0ms; }
