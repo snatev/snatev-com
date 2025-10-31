@@ -46,8 +46,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/styles.css">
 
-    <!-- Tailwind is built via tailwind.config.js to assets/tw.css -->
-
     <script type="application/ld+json">{
         "@context": "https://schema.org",
         "@type": "Person",
@@ -87,16 +85,16 @@
     <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/30 border-b border-white/5" aria-label="Primary navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <a href="/" class="text-white font-display font-semibold text-lg hover:text-white/80 transition-colors" title="Home" aria-label="Home">
+                <a href="/" id="brandHome" class="text-white font-display font-semibold text-lg hover:text-white/80 transition-colors cursor-pointer" title="Home" aria-label="Home">
                     snatev
                 </a>
 
                 <div class="flex items-center gap-6">
-                    <a href="#about" title="About" class="flex items-center gap-1.5 text-sm text-white/70 hover:text-white transition-colors">
+                    <a href="#about" title="About" class="nav-link flex items-center gap-1.5 text-sm text-white/70 hover:text-white transition-colors">
                         <i class="bi bi-person-circle text-base"></i>
                         <span>About</span>
                     </a>
-                    <a href="#links" title="Links" class="flex items-center gap-1.5 text-sm text-white/70 hover:text-white transition-colors">
+                    <a href="#links" title="Links" class="nav-link flex items-center gap-1.5 text-sm text-white/70 hover:text-white transition-colors">
                         <i class="bi bi-link-45deg text-base"></i>
                         <span>Links</span>
                     </a>
@@ -133,7 +131,7 @@
                     <div class="about-title-row">
                         <h2 class="about-main-title">
                             <i class="bi bi-stars" aria-hidden="true"></i>
-                            Building Tools & Exploring Technologies
+                            Building Tools & Exploring
                         </h2>
                         <div class="about-meta">
                             <div class="about-badge">
@@ -166,15 +164,15 @@
                         <div class="highlight-item">
                             <i class="bi bi-server" aria-hidden="true"></i>
                             <div class="highlight-content">
-                                <div class="highlight-label">Backend Development</div>
-                                <div class="highlight-text">APIs, Databases, Server Architecture</div>
+                                <div class="highlight-label">Backend Architecture</div>
+                                <div class="highlight-text">APIs, Databases, Architecture</div>
                             </div>
                         </div>
                         <div class="highlight-item">
                             <i class="bi bi-shield-check" aria-hidden="true"></i>
                             <div class="highlight-content">
                                 <div class="highlight-label">Security & Tools</div>
-                                <div class="highlight-text">Automation, Scripts, Infrastructure</div>
+                                <div class="highlight-text">Automation, Scripts, Infra</div>
                             </div>
                         </div>
                         <div class="highlight-item">
@@ -217,6 +215,10 @@
                         <span class="card-count">3</span>
                     </div>
                     <div class="social-grid-compact">
+                        <a href="https://snavoris.hu/" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-globe2" aria-hidden="true"></i>
+                            <span>Snavoris</span>
+                        </a>
                         <a href="https://kickoff.snatev.com/" target="_blank" rel="noopener noreferrer" class="social-item">
                             <i class="bi bi-rocket-takeoff" aria-hidden="true"></i>
                             <span>Kickoff</span>
@@ -225,10 +227,7 @@
                             <i class="bi bi-key-fill" aria-hidden="true"></i>
                             <span>Password</span>
                         </a>
-                        <a href="https://snavoris.hu/" target="_blank" rel="noopener noreferrer" class="social-item">
-                            <i class="bi bi-globe2" aria-hidden="true"></i>
-                            <span>Snavoris</span>
-                        </a>
+                        <div class="social-item placeholder"></div>
                     </div>
                 </div>
 
@@ -240,25 +239,30 @@
                             </div>
                             <h2 class="link-card-title-inline">Developer</h2>
                         </div>
-                        <span class="card-count">4</span>
+                        <span class="card-count">5</span>
                     </div>
                     <div class="social-grid-compact">
                         <a href="https://github.com/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
                             <i class="bi bi-github" aria-hidden="true"></i>
                             <span>GitHub</span>
                         </a>
+                        <a href="https://tryhackme.com/p/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-shield-lock" aria-hidden="true"></i>
+                            <span>TryHackMe</span>
+                        </a>
                         <a href="https://hub.docker.com/u/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
                             <i class="bi bi-boxes" aria-hidden="true"></i>
                             <span>Docker</span>
                         </a>
-                        <a href="https://pypi.org/user/snatev/" target="_blank" rel="noopener noreferrer" class="social-item">
+                        <a href="https://pypi.org/user/snatev/" target="_blank" rel="noopener noreferrer" class="social-item opacity-50 hover:opacity-75">
                             <i class="bi bi-filetype-py" aria-hidden="true"></i>
                             <span>PyPI</span>
                         </a>
-                        <a href="https://stackoverflow.com/users/31334055/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
+                        <a href="https://stackoverflow.com/users/31334055/snatev" target="_blank" rel="noopener noreferrer" class="social-item opacity-50 hover:opacity-75">
                             <i class="bi bi-stack-overflow" aria-hidden="true"></i>
                             <span>Stack</span>
                         </a>
+                        <div class="social-item placeholder"></div>
                     </div>
                 </div>
 
@@ -270,25 +274,19 @@
                             </div>
                             <h2 class="link-card-title-inline">Gaming</h2>
                         </div>
-                        <span class="card-count">4</span>
+                        <span class="card-count">2</span>
                     </div>
                     <div class="social-grid-compact">
                         <a href="https://steamcommunity.com/id/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
                             <i class="bi bi-steam" aria-hidden="true"></i>
-                            <span>Steam</span>
+                            <span>Steam1</span>
                         </a>
-                        <a href="https://www.twitch.tv/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
-                            <i class="bi bi-twitch" aria-hidden="true"></i>
-                            <span>Twitch</span>
+                        <a href="https://steamcommunity.com/id/justsnaf" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-steam" aria-hidden="true"></i>
+                            <span>Steam2</span>
                         </a>
-                        <a href="https://kick.com/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
-                            <i class="bi bi-broadcast" aria-hidden="true"></i>
-                            <span>Kick</span>
-                        </a>
-                        <a href="https://tryhackme.com/p/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
-                            <i class="bi bi-shield-lock" aria-hidden="true"></i>
-                            <span>TryHackMe</span>
-                        </a>
+                        <div class="social-item placeholder"></div>
+                        <div class="social-item placeholder"></div>
                     </div>
                 </div>
 
@@ -300,22 +298,26 @@
                             </div>
                             <h2 class="link-card-title-inline">Social</h2>
                         </div>
-                        <span class="card-count">4</span>
+                        <span class="card-count">5</span>
                     </div>
                     <div class="social-grid-compact">
+                        <a href="https://discord.com/users/1381959422804492433" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-discord" aria-hidden="true"></i>
+                            <span>Discord</span>
+                        </a>
+                        <a href="https://www.reddit.com/user/snatev/" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-reddit" aria-hidden="true"></i>
+                            <span>Reddit</span>
+                        </a>
                         <a href="https://x.com/thesnatev" target="_blank" rel="noopener noreferrer" class="social-item">
                             <i class="bi bi-twitter-x" aria-hidden="true"></i>
                             <span>X</span>
                         </a>
-                        <a href="https://www.instagram.com/thesnatev/" target="_blank" rel="noopener noreferrer" class="social-item">
+                        <a href="https://www.instagram.com/thesnatev/" target="_blank" rel="noopener noreferrer" class="social-item opacity-50 hover:opacity-75">
                             <i class="bi bi-instagram" aria-hidden="true"></i>
                             <span>Instagram</span>
                         </a>
-                        <a href="https://www.tiktok.com/@snatev" target="_blank" rel="noopener noreferrer" class="social-item">
-                            <i class="bi bi-tiktok" aria-hidden="true"></i>
-                            <span>TikTok</span>
-                        </a>
-                        <a href="https://bsky.app/profile/snatev.com" target="_blank" rel="noopener noreferrer" class="social-item">
+                        <a href="https://bsky.app/profile/snatev.com" target="_blank" rel="noopener noreferrer" class="social-item opacity-50 hover:opacity-75">
                             <i class="bi bi-cloud" aria-hidden="true"></i>
                             <span>Bluesky</span>
                         </a>
@@ -330,9 +332,13 @@
                             </div>
                             <h2 class="link-card-title-inline">Media</h2>
                         </div>
-                        <span class="card-count">4</span>
+                        <span class="card-count">5</span>
                     </div>
                     <div class="social-grid-compact">
+                        <a href="https://www.tiktok.com/@snatev" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-tiktok" aria-hidden="true"></i>
+                            <span>TikTok</span>
+                        </a>
                         <a href="https://www.youtube.com/@snatev" target="_blank" rel="noopener noreferrer" class="social-item">
                             <i class="bi bi-youtube" aria-hidden="true"></i>
                             <span>YouTube</span>
@@ -341,13 +347,13 @@
                             <i class="bi bi-spotify" aria-hidden="true"></i>
                             <span>Spotify</span>
                         </a>
-                        <a href="https://www.reddit.com/user/snatev/" target="_blank" rel="noopener noreferrer" class="social-item">
-                            <i class="bi bi-reddit" aria-hidden="true"></i>
-                            <span>Reddit</span>
+                        <a href="https://www.twitch.tv/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
+                            <i class="bi bi-twitch" aria-hidden="true"></i>
+                            <span>Twitch</span>
                         </a>
-                        <a href="https://www.pinterest.com/thesnatev/" target="_blank" rel="noopener noreferrer" class="social-item">
-                            <i class="bi bi-pinterest" aria-hidden="true"></i>
-                            <span>Pinterest</span>
+                        <a href="https://kick.com/snatev" target="_blank" rel="noopener noreferrer" class="social-item opacity-50 hover:opacity-75">
+                            <i class="bi bi-broadcast" aria-hidden="true"></i>
+                            <span>Kick</span>
                         </a>
                     </div>
                 </div>
@@ -358,19 +364,21 @@
                             <div class="link-card-icon">
                                 <i class="bi bi-chat-dots" aria-hidden="true"></i>
                             </div>
-                            <h2 class="link-card-title-inline">Connect</h2>
+                            <h2 class="link-card-title-inline">Others</h2>
                         </div>
                         <span class="card-count">2</span>
                     </div>
                     <div class="social-grid-compact">
-                        <a href="https://discord.com/users/1381959422804492433" target="_blank" rel="noopener noreferrer" class="social-item">
-                            <i class="bi bi-discord" aria-hidden="true"></i>
-                            <span>Discord</span>
-                        </a>
                         <a href="https://www.gravatar.com/snatev" target="_blank" rel="noopener noreferrer" class="social-item">
                             <i class="bi bi-person-circle" aria-hidden="true"></i>
                             <span>Gravatar</span>
                         </a>
+                        <a href="https://www.pinterest.com/thesnatev/" target="_blank" rel="noopener noreferrer" class="social-item opacity-50 hover:opacity-75">
+                            <i class="bi bi-pinterest" aria-hidden="true"></i>
+                            <span>Pinterest</span>
+                        </a>
+                        <div class="social-item placeholder"></div>
+                        <div class="social-item placeholder"></div>
                     </div>
                 </div>
 
@@ -383,7 +391,6 @@
             <div class="flex justify-between items-center h-12">
                 <span id="current-time" class="text-sm text-white/70 font-mono"></span>
                 <a href="https://noctra.hu" target="_blank" rel="noopener noreferrer" class="text-xs text-white/50 hover:text-white/80 transition-colors flex items-center gap-1.5">
-                    <span>by</span>
                     <span class="font-semibold">NOCTRA</span>
                 </a>
             </div>
@@ -444,6 +451,7 @@
         const scrollTopBtn = document.getElementById('scrollTop');
         const scrollBottomBtn = document.getElementById('scrollBottom');
         const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
+        const brandLink = document.getElementById('brandHome');
 
         function updateScrollButtons() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -471,8 +479,26 @@
             window.scrollTo({ top: document.documentElement.scrollHeight, behavior: scrollBehavior });
         });
 
+        if (brandLink) {
+            brandLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: scrollBehavior });
+            });
+        }
+
         window.addEventListener('scroll', updateScrollButtons);
         updateScrollButtons();
+
+        function updateSocialGridScrollbarState(){
+            const grids = document.querySelectorAll('.social-grid-compact');
+            grids.forEach(el => {
+                const has = el.scrollHeight > el.clientHeight + 1;
+                el.classList.toggle('has-scrollbar', has);
+            });
+        }
+
+        window.addEventListener('resize', updateSocialGridScrollbarState);
+        updateSocialGridScrollbarState();
 
         (function addTitlesToSocialLinks(){
             const links = document.querySelectorAll('.social-item');
