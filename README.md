@@ -5,6 +5,6 @@ A personal page and hub for displaying information and links to various related 
 
 <br>
 
-![snatev-hub](https://github.com/user-attachments/assets/30744908-c228-452f-9209-d0d1848ca8c5)
+![snatev-hub](https://github.com/user-attachments/assets/50e6e0cd-fb49-4603-a8dc-4b494a769c5e)
 
 </div>
